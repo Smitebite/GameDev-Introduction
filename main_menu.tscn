@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dy4edbarg2fje"]
+[gd_scene load_steps=17 format=3 uid="uid://dy4edbarg2fje"]
 
 [ext_resource type="Texture2D" uid="uid://cpjmvxxjf7epr" path="res://assets/title.png" id="1_8w142"]
+[ext_resource type="Script" path="res://Binary_Node.gd" id="1_cci5c"]
 [ext_resource type="Texture2D" uid="uid://7y0g54lspvdk" path="res://assets/play_button.png" id="2_irlsm"]
 [ext_resource type="Texture2D" uid="uid://bn811kb1p6k7r" path="res://assets/credits_button_hover.png" id="2_s8cm5"]
 [ext_resource type="Texture2D" uid="uid://1ki6puokkgxk" path="res://assets/exit_button.png" id="3_f7yoy"]
@@ -10,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://e8avdgdexsvd" path="res://assets/exit_button_hover.png" id="7_ol8nc"]
 [ext_resource type="Script" path="res://Exit_Button.gd" id="8_ih2pb"]
 [ext_resource type="Texture2D" uid="uid://bgb0pb1j67e2o" path="res://assets/settings_button_hover.png" id="9_d8dig"]
+[ext_resource type="Texture2D" uid="uid://c5dybf8quap0j" path="res://assets/code_binary.png" id="11_uutad"]
+[ext_resource type="Texture2D" uid="uid://dnyy37aucxvig" path="res://assets/of_binary.png" id="12_vlt0m"]
+[ext_resource type="Texture2D" uid="uid://c23eo05k4omeh" path="res://assets/the_binary.png" id="13_xenyb"]
+[ext_resource type="Texture2D" uid="uid://die5f5da8rg0h" path="res://assets/undead_binary.png" id="14_3otfm"]
+[ext_resource type="Texture2D" uid="uid://c6fbpsynpglp2" path="res://assets/title_binary.png" id="15_y31y2"]
 
 [node name="Main_Menu" type="Control"]
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
@@ -22,18 +28,86 @@ offset_bottom = 720.0
 layout_mode = 1
 offset_right = 1280.0
 offset_bottom = 720.0
-color = Color(0, 0, 0, 1)
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 
-[node name="Credits_Button" type="TextureButton" parent="Background"]
-layout_mode = 0
-offset_left = 736.0
-offset_top = 589.0
-offset_right = 1036.0
-offset_bottom = 653.0
-texture_normal = ExtResource("4_733n4")
-texture_hover = ExtResource("2_s8cm5")
+[node name="Binary_Node" type="Node2D" parent="Background"]
+script = ExtResource("1_cci5c")
+
+[node name="code_binary_1" type="TextureRect" parent="Background/Binary_Node"]
+z_as_relative = false
+offset_top = 53.0
+offset_right = 1340.0
+offset_bottom = 133.0
+texture = ExtResource("11_uutad")
+
+[node name="code_binary_2" type="TextureRect" parent="Background/Binary_Node"]
+z_as_relative = false
+offset_left = 1340.0
+offset_top = 53.0
+offset_right = 2680.0
+offset_bottom = 133.0
+texture = ExtResource("11_uutad")
+
+[node name="of_binary_1" type="TextureRect" parent="Background/Binary_Node"]
+z_as_relative = false
+offset_top = 186.0
+offset_right = 1890.0
+offset_bottom = 266.0
+texture = ExtResource("12_vlt0m")
+
+[node name="of_binary_2" type="TextureRect" parent="Background/Binary_Node"]
+z_as_relative = false
+offset_left = -1890.0
+offset_top = 186.0
+offset_bottom = 266.0
+texture = ExtResource("12_vlt0m")
+
+[node name="the_binary_1" type="TextureRect" parent="Background/Binary_Node"]
+z_as_relative = false
+offset_top = 319.0
+offset_right = 2050.0
+offset_bottom = 399.0
+texture = ExtResource("13_xenyb")
+
+[node name="the_binary_2" type="TextureRect" parent="Background/Binary_Node"]
+z_as_relative = false
+offset_left = 2050.0
+offset_top = 319.0
+offset_right = 4100.0
+offset_bottom = 399.0
+texture = ExtResource("13_xenyb")
+
+[node name="undead_binary_1" type="TextureRect" parent="Background/Binary_Node"]
+z_as_relative = false
+offset_top = 452.0
+offset_right = 2050.0
+offset_bottom = 532.0
+texture = ExtResource("14_3otfm")
+
+[node name="undead_binary_2" type="TextureRect" parent="Background/Binary_Node"]
+z_as_relative = false
+offset_left = 2050.0
+offset_top = 452.0
+offset_right = 4100.0
+offset_bottom = 532.0
+texture = ExtResource("14_3otfm")
+
+[node name="title_binary_1" type="TextureRect" parent="Background/Binary_Node"]
+z_as_relative = false
+offset_top = 585.0
+offset_right = 1715.0
+offset_bottom = 665.0
+texture = ExtResource("15_y31y2")
+
+[node name="title_binary_2" type="TextureRect" parent="Background/Binary_Node"]
+z_as_relative = false
+offset_left = -1715.0
+offset_top = 585.0
+offset_bottom = 665.0
+texture = ExtResource("15_y31y2")
 
 [node name="Title" type="TextureRect" parent="Background"]
+z_index = 1
 layout_mode = 0
 offset_left = 340.0
 offset_top = 30.0
@@ -42,29 +116,50 @@ offset_bottom = 350.0
 texture = ExtResource("1_8w142")
 
 [node name="Play_Button" type="TextureButton" parent="Background"]
+z_index = 1
+z_as_relative = false
 layout_mode = 0
 offset_left = 554.0
 offset_top = 552.0
 offset_right = 726.0
 offset_bottom = 616.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_irlsm")
 texture_hover = ExtResource("6_qt3y2")
 
+[node name="Credits_Button" type="TextureButton" parent="Background"]
+z_index = 1
+z_as_relative = false
+layout_mode = 0
+offset_left = 736.0
+offset_top = 589.0
+offset_right = 1036.0
+offset_bottom = 653.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_733n4")
+texture_hover = ExtResource("2_s8cm5")
+
 [node name="Exit_Button" type="TextureButton" parent="Background"]
+z_index = 1
+z_as_relative = false
 layout_mode = 0
 offset_left = 554.0
 offset_top = 626.0
 offset_right = 726.0
 offset_bottom = 690.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_f7yoy")
 texture_hover = ExtResource("7_ol8nc")
 script = ExtResource("8_ih2pb")
 
 [node name="Settings_Button" type="TextureButton" parent="Background"]
+z_index = 1
+z_as_relative = false
 layout_mode = 0
 offset_left = 244.0
 offset_top = 589.0
 offset_right = 544.0
 offset_bottom = 653.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_hk3dt")
 texture_hover = ExtResource("9_d8dig")
