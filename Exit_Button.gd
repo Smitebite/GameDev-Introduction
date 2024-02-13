@@ -1,8 +1,4 @@
 extends TextureButton
 
-func _pressed():
+func _on_pressed():
 	get_tree().quit()
-	
-	
-
-

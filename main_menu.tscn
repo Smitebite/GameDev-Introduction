@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dy4edbarg2fje"]
+[gd_scene load_steps=18 format=3 uid="uid://dy4edbarg2fje"]
 
 [ext_resource type="Texture2D" uid="uid://cpjmvxxjf7epr" path="res://assets/title.png" id="1_8w142"]
 [ext_resource type="Script" path="res://Binary_Node.gd" id="1_cci5c"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Exit_Button.gd" id="8_ih2pb"]
 [ext_resource type="Texture2D" uid="uid://bgb0pb1j67e2o" path="res://assets/settings_button_hover.png" id="9_d8dig"]
 [ext_resource type="Texture2D" uid="uid://c5dybf8quap0j" path="res://assets/code_binary.png" id="11_uutad"]
+[ext_resource type="Script" path="res://Credits_Button.gd" id="12_taaws"]
 [ext_resource type="Texture2D" uid="uid://dnyy37aucxvig" path="res://assets/of_binary.png" id="12_vlt0m"]
 [ext_resource type="Texture2D" uid="uid://c23eo05k4omeh" path="res://assets/the_binary.png" id="13_xenyb"]
 [ext_resource type="Texture2D" uid="uid://die5f5da8rg0h" path="res://assets/undead_binary.png" id="14_3otfm"]
@@ -138,6 +139,7 @@ offset_bottom = 653.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_733n4")
 texture_hover = ExtResource("2_s8cm5")
+script = ExtResource("12_taaws")
 
 [node name="Exit_Button" type="TextureButton" parent="Background"]
 z_index = 1
@@ -163,3 +165,6 @@ offset_bottom = 653.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_hk3dt")
 texture_hover = ExtResource("9_d8dig")
+
+[connection signal="pressed" from="Background/Credits_Button" to="Background/Credits_Button" method="_on_pressed"]
+[connection signal="pressed" from="Background/Exit_Button" to="Background/Exit_Button" method="_on_pressed"]
