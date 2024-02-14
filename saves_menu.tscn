@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bapieo7it3uxe"]
+[gd_scene load_steps=8 format=3 uid="uid://bapieo7it3uxe"]
 
 [ext_resource type="FontFile" uid="uid://dk8yb3j0hbd1" path="res://PressStart2P-Regular.ttf" id="1_to8i7"]
 [ext_resource type="Texture2D" uid="uid://c1eygmbmx43h1" path="res://assets/mainmenu_button.png" id="2_kse1w"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://MainMenu_Button.gd" id="4_7poen"]
 [ext_resource type="Texture2D" uid="uid://7y0g54lspvdk" path="res://assets/play_button.png" id="5_aj8j5"]
 [ext_resource type="Texture2D" uid="uid://8af60jb30wbr" path="res://assets/play_button_hover.png" id="6_pr41v"]
+[ext_resource type="Script" path="res://Play_Button_TMP.gd" id="7_m6wub"]
 
 [node name="Credits_Menu" type="Control"]
 layout_mode = 3
@@ -56,7 +57,7 @@ texture_normal = ExtResource("2_kse1w")
 texture_hover = ExtResource("3_jylix")
 script = ExtResource("4_7poen")
 
-[node name="Play_Button" type="TextureButton" parent="Background"]
+[node name="Play_Button_TMP" type="TextureButton" parent="Background"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -72,5 +73,7 @@ grow_vertical = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_aj8j5")
 texture_hover = ExtResource("6_pr41v")
+script = ExtResource("7_m6wub")
 
 [connection signal="pressed" from="Background/MainMenu_Button" to="Background/MainMenu_Button" method="_on_pressed"]
+[connection signal="pressed" from="Background/Play_Button_TMP" to="Background/Play_Button_TMP" method="_on_pressed"]
