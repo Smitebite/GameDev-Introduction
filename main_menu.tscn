@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dy4edbarg2fje"]
+[gd_scene load_steps=20 format=3 uid="uid://dy4edbarg2fje"]
 
 [ext_resource type="Texture2D" uid="uid://cpjmvxxjf7epr" path="res://assets/title.png" id="1_8w142"]
 [ext_resource type="Script" path="res://Binary_Node.gd" id="1_cci5c"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://e8avdgdexsvd" path="res://assets/exit_button_hover.png" id="7_ol8nc"]
 [ext_resource type="Script" path="res://Exit_Button.gd" id="8_ih2pb"]
 [ext_resource type="Texture2D" uid="uid://bgb0pb1j67e2o" path="res://assets/settings_button_hover.png" id="9_d8dig"]
+[ext_resource type="Script" path="res://Play_Button.gd" id="10_nbg4b"]
 [ext_resource type="Texture2D" uid="uid://c5dybf8quap0j" path="res://assets/code_binary.png" id="11_uutad"]
 [ext_resource type="Script" path="res://Credits_Button.gd" id="12_taaws"]
 [ext_resource type="Texture2D" uid="uid://dnyy37aucxvig" path="res://assets/of_binary.png" id="12_vlt0m"]
@@ -128,6 +129,7 @@ offset_bottom = 616.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_irlsm")
 texture_hover = ExtResource("6_qt3y2")
+script = ExtResource("10_nbg4b")
 
 [node name="Credits_Button" type="TextureButton" parent="Background"]
 z_index = 1
@@ -168,6 +170,7 @@ texture_normal = ExtResource("5_hk3dt")
 texture_hover = ExtResource("9_d8dig")
 script = ExtResource("18_5eawe")
 
+[connection signal="pressed" from="Background/Play_Button" to="Background/Play_Button" method="_on_pressed"]
 [connection signal="pressed" from="Background/Credits_Button" to="Background/Credits_Button" method="_on_pressed"]
 [connection signal="pressed" from="Background/Exit_Button" to="Background/Exit_Button" method="_on_pressed"]
 [connection signal="pressed" from="Background/Settings_Button" to="Background/Settings_Button" method="_on_pressed"]
