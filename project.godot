@@ -13,12 +13,12 @@ config_version=5
 config/name="Code of the Undead"
 run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.png"
 
 [display]
 
 window/size/viewport_width=1280
-window/size/viewport_height=716
+window/size/viewport_height=720
 window/size/resizable=false
 
 [importer_defaults]
