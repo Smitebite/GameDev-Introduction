@@ -1,7 +1,9 @@
 extends CharacterBody2D
-const ACCELERATION = 800
-const FRICTION = 500
-const MAX_SPEED = 120
+
+const ACCELERATION = 600
+const FRICTION = 600
+const MAX_SPEED = 150
+const SPRINT_MULTIPLIER = 1.5
 
 enum {IDLE, WALK}
 var state = IDLE
@@ -19,25 +21,37 @@ var animTree_state_keys = [
 	"walk"
 ]
 
+# Member variable to keep track of the current max speed, including any sprint modifications
+var current_max_speed = MAX_SPEED
+
 func _physics_process(delta):
 	move(delta)
 	animate()
 
 func move(delta):
 	var input_vector = Input.get_vector("Left", "Right", "Up", "Down")
+	current_max_speed = MAX_SPEED  # Reset to default at each frame
+	if Input.is_action_pressed("Sprint"):
+		current_max_speed *= SPRINT_MULTIPLIER  # Adjust for sprinting
+
 	if input_vector == Vector2.ZERO:
 		state = IDLE
 		apply_friction(FRICTION * delta)
 	else:
 		state = WALK
-		apply_movement(input_vector * ACCELERATION * delta)
-		blend_position = input_vector
-	move_and_slide()
+		apply_movement(input_vector, delta)
+	move_and_collide(velocity * delta)
 
-
-func apply_movement(amount) -> void:
-	velocity += amount
-	velocity = velocity.limit_length(MAX_SPEED)
+func apply_movement(input_vector, delta) -> void:
+	var acceleration = ACCELERATION
+	if Input.is_action_pressed("Sprint"):
+		acceleration *= SPRINT_MULTIPLIER
+		# Scale blend_position by the sprint multiplier to reflect increased speed
+		blend_position = input_vector.normalized() * SPRINT_MULTIPLIER
+	else:
+		blend_position = input_vector.normalized()
+	velocity += input_vector.normalized() * acceleration * delta
+	velocity = velocity.limit_length(current_max_speed)
 
 func apply_friction(amount) -> void:
 	if velocity.length() > amount:
@@ -47,4 +61,5 @@ func apply_friction(amount) -> void:
 
 func animate() -> void:
 	state_machine.travel(animTree_state_keys[state])
-	animationTree.set(blend_pos_paths[state],blend_position)
+	animationTree.set(blend_pos_paths[state], blend_position)
+
