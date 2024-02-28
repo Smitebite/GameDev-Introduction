@@ -1,11 +1,10 @@
-[gd_scene load_steps=81 format=3 uid="uid://dlda5rvqh7utf"]
+[gd_scene load_steps=80 format=3 uid="uid://bpndalxdtxrv7"]
 
 [ext_resource type="Texture2D" uid="uid://joeh6swp8ks3" path="res://assets/eaton_g_outline.png" id="1_plgjy"]
 [ext_resource type="Script" path="res://Character.gd" id="2_nn6hf"]
 [ext_resource type="Texture2D" uid="uid://w2te574ndi7q" path="res://assets/character/character_walk.png" id="2_t3stc"]
 [ext_resource type="Texture2D" uid="uid://dqxbqsx1qbuwv" path="res://assets/character/character_death.png" id="3_eshr1"]
 [ext_resource type="Texture2D" uid="uid://dybs2hn46wpx7" path="res://assets/character/character_idle.png" id="4_g4nyt"]
-[ext_resource type="Script" path="res://shooting_system.gd" id="6_ggcvv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rjswa"]
 
@@ -865,7 +864,3 @@ parameters/walk/Walk_BlendSpace2D/blend_position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 zoom = Vector2(2, 2)
-
-[node name="ShootingSystem" type="Marker2D" parent="Character"]
-position = Vector2(-9, 1)
-script = ExtResource("6_ggcvv")

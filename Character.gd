@@ -11,10 +11,6 @@ var state = IDLE
 @onready var animationTree = $AnimationTree
 @onready var state_machine = animationTree["parameters/playback"]
 
-
-#al shot(ammo_in_magazine: int)
-#al gun_reload(ammo_in_magazine: int)
-
 var blend_position : Vector2 = Vector2.ZERO
 var blend_pos_paths = [
 	"parameters/idle/idle_BlendSpace2D/blend_position",
@@ -32,15 +28,11 @@ func _physics_process(delta):
 	move(delta)
 	animate()
 
-
 func move(delta):
 	var input_vector = Input.get_vector("Left", "Right", "Up", "Down")
-<<<<<<< Updated upstream
 	current_max_speed = MAX_SPEED  # Reset to default at each frame
 	if Input.is_action_pressed("Sprint"):
 		current_max_speed *= SPRINT_MULTIPLIER  # Adjust for sprinting
-=======
->>>>>>> Stashed changes
 
 	if input_vector == Vector2.ZERO:
 		state = IDLE
@@ -69,12 +61,5 @@ func apply_friction(amount) -> void:
 
 func animate() -> void:
 	state_machine.travel(animTree_state_keys[state])
-<<<<<<< Updated upstream
 	animationTree.set(blend_pos_paths[state], blend_position)
 
-=======
-	animationTree.set(blend_pos_paths[state],blend_position)
-
-
-	
->>>>>>> Stashed changes
