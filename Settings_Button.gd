@@ -8,5 +8,6 @@
 
 extends TextureButton
 
+## Called when the settings menu button is pressed to go to the settings menu.
 func _on_pressed():
 	get_tree().change_scene_to_file("res://settings_menu.tscn")

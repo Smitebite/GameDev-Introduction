@@ -8,5 +8,6 @@
 
 extends TextureButton
 
+## Called when the exit button is pressed to quit the game.
 func _on_pressed():
 	get_tree().quit()

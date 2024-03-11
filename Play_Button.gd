@@ -8,5 +8,6 @@
 
 extends TextureButton
 
+## Called when the play button is pressed to go to the game saves menu.
 func _on_pressed():
 	get_tree().change_scene_to_file("res://saves_menu.tscn")

@@ -8,5 +8,6 @@
 
 extends TextureButton
 
+## Called when the tmp play button is pressed to go the game scene.
 func _on_pressed():
 	get_tree().change_scene_to_file("res://eaton_g.tscn")
