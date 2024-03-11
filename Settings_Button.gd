@@ -1,3 +1,11 @@
+## Description: Settings button script for going to the settings menu.
+## Author: Seth Daniels, Nico Gatapia, Jacob Horton, Elijah Toliver, Gilbert Vandegrift
+## Date Created: March 10, 2024
+## Date Modified: March 10, 2024
+## Version: Development
+## Godot Version: 4.2.1
+## License: MIT License
+
 extends TextureButton
 
 func _on_pressed():

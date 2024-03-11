@@ -1,3 +1,11 @@
+## Description: Bullet script for the player's bullets.
+## Author: Seth Daniels, Nico Gatapia, Jacob Horton, Elijah Toliver, Gilbert Vandegrift
+## Date Created: March 10, 2024
+## Date Modified: March 10, 2024
+## Version: Development
+## Godot Version: 4.2.1
+## License: MIT License
+
 extends Area2D
 
 class_name Bullet
