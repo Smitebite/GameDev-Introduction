@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6c7gdyma23gl"
+path="res://.godot/imported/Reborn - Main Menu.mp3-b314c56e99f0c9d2f7af1184c6701273.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Reborn - Main Menu.mp3"
+dest_files=["res://.godot/imported/Reborn - Main Menu.mp3-b314c56e99f0c9d2f7af1184c6701273.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
