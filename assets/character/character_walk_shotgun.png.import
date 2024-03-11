@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpnxwn4jvdg8a"
-path="res://.godot/imported/character_shoot.png-b8250f4f3419b414f9b4dde68b9ca1ae.ctex"
+uid="uid://cpb23qd3xk0xw"
+path="res://.godot/imported/character_walk_shotgun.png-3ca4beb4cc48f708a32e01985359dc5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/character_shoot.png"
-dest_files=["res://.godot/imported/character_shoot.png-b8250f4f3419b414f9b4dde68b9ca1ae.ctex"]
+source_file="res://assets/character/character_walk_shotgun.png"
+dest_files=["res://.godot/imported/character_walk_shotgun.png-3ca4beb4cc48f708a32e01985359dc5d.ctex"]
 
 [params]
 
