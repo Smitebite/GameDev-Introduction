@@ -11,7 +11,7 @@ var reload_status = false
 @export var magazine_size = 10
 @export var ammo_in_magazine = 0
 	
-@onready var bullet_scene = preload("res://bullet.tscn")
+@onready var bullet_scene = preload("res://scenes/bullet.tscn")
 func _ready():
 	ammo_in_magazine = magazine_size
 	
