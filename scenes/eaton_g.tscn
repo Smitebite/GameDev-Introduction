@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://bpndalxdtxrv7"]
+[gd_scene load_steps=82 format=3 uid="uid://bpndalxdtxrv7"]
 
 [ext_resource type="Texture2D" uid="uid://joeh6swp8ks3" path="res://assets/eaton_g_outline.png" id="1_plgjy"]
 [ext_resource type="Script" path="res://scripts/Character.gd" id="2_nn6hf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dqxbqsx1qbuwv" path="res://assets/character/character_death.png" id="3_eshr1"]
 [ext_resource type="Texture2D" uid="uid://dybs2hn46wpx7" path="res://assets/character/character_idle.png" id="4_g4nyt"]
 [ext_resource type="Script" path="res://scripts/shooting_system.gd" id="6_8q2rr"]
+[ext_resource type="PackedScene" uid="uid://kd74qxafpf1j" path="res://scenes/HUD.tscn" id="7_o3jpv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rjswa"]
 
@@ -868,3 +869,5 @@ zoom = Vector2(2, 2)
 
 [node name="ShootingSystem" type="Marker2D" parent="Character"]
 script = ExtResource("6_8q2rr")
+
+[node name="Hud" parent="." instance=ExtResource("7_o3jpv")]

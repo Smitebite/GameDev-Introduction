@@ -42,6 +42,7 @@ func shoot():
 		bullet.rotation = move_direction.angle()
 	
 		ammo_in_magazine -= 1
+		emit_signal('shot')
 		print(ammo_in_magazine)
 	
 # https://www.youtube.com/watch?v=nqaSLUdEPL0
