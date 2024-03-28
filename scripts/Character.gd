@@ -4,6 +4,7 @@ const ACCELERATION = 600
 const FRICTION = 600
 const MAX_SPEED = 150
 const SPRINT_MULTIPLIER = 1.5
+var shooting_enabled = false
 
 enum {IDLE, WALK}
 var state = IDLE
@@ -31,12 +32,28 @@ func _physics_process(delta):
 func move(delta):
 	var input_vector = Input.get_vector("Left", "Right", "Up", "Down")
 	current_max_speed = MAX_SPEED  # Reset to default at each frame
+	if Input.is_action_just_pressed("Shoot_Toggle"):
+		shooting_enabled = not shooting_enabled
+		
 	if Input.is_action_pressed("Sprint"):
 		current_max_speed *= SPRINT_MULTIPLIER  # Adjust for sprinting
 
 	if input_vector == Vector2.ZERO:
 		state = IDLE
 		apply_friction(FRICTION * delta)
+	
+				
+	# TODO make states for pistol and shotgun using this format 	
+	#if input_vector == Vector2.ZERO and shooting_enabled == true:
+	#	state = IDLE_pistol
+	#	apply_friction(FRICTION * delta)
+	
+	#if input_vector == Vector2.ZERO and shooting_enabled == true:
+	#	state = IDLE_shotgun
+	#	apply_friction(FRICTION * delta)
+	
+	#TODO this needs to change for Walking with weapons 
+	
 	else:
 		state = WALK
 		apply_movement(input_vector, delta)
