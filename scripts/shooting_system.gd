@@ -7,6 +7,7 @@ signal shot
 signal gun_reload(ammo_in_magazine: int, ammo_left: int)
 var reload_time = 1
 var reload_status = false
+var shooting_enabled = false
 
 @export var magazine_size = 10
 @export var ammo_in_magazine = 0
@@ -15,11 +16,15 @@ var reload_status = false
 func _ready():
 	ammo_in_magazine = magazine_size
 	
-func _input(event):
-	if Input.is_action_just_pressed("Shoot"):
-		shoot()
-	if Input.is_action_just_pressed("Reload"):
-		reload()
+#Changed Shoot event to a shoot Toggle to make anitmations easier
+func _input(_event):
+	if Input.is_action_just_pressed("Shoot_Toggle"):
+		shooting_enabled = not shooting_enabled
+	elif Input.is_action_just_pressed("Shoot") and shooting_enabled:
+		if Input.is_action_just_pressed("Shoot"):
+			shoot()
+		if Input.is_action_just_pressed("Reload"):
+			reload()
 		
 func reload():
 	if reload_status == true:
