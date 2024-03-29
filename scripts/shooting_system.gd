@@ -3,7 +3,7 @@ extends Marker2D
 
 class_name ShootingSystem
 
-signal shot
+signal shot(ammo_in_magazine: int)
 signal gun_reload(ammo_in_magazine: int, ammo_left: int)
 var reload_time = 1
 var reload_status = false
@@ -44,5 +44,7 @@ func shoot():
 		ammo_in_magazine -= 1
 		emit_signal('shot')
 		print(ammo_in_magazine)
+		if ammo_in_magazine == 0:
+			reload()
 	
 # https://www.youtube.com/watch?v=nqaSLUdEPL0

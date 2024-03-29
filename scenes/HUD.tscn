@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://kd74qxafpf1j"]
+[gd_scene load_steps=6 format=3 uid="uid://kd74qxafpf1j"]
 
 [ext_resource type="Texture2D" uid="uid://dq0ug7y1bgloy" path="res://assets/ui/weaponbox.png" id="1_4dv7s"]
 [ext_resource type="Texture2D" uid="uid://ql8107a7k50r" path="res://assets/ui/pistol.png" id="2_1v512"]
 [ext_resource type="Texture2D" uid="uid://lxyopiwxda4n" path="res://assets/character/bulletone.png" id="3_1ky5q"]
-[ext_resource type="Script" path="res://scenes/Label.gd" id="3_hfog0"]
+[ext_resource type="FontFile" uid="uid://dk8yb3j0hbd1" path="res://PressStart2P-Regular.ttf" id="3_a3rs0"]
+[ext_resource type="Script" path="res://scripts/ammo_count.gd" id="4_86dfb"]
 
 [node name="Hud" type="CanvasLayer"]
 
@@ -39,7 +40,7 @@ grow_vertical = 0
 texture = ExtResource("1_4dv7s")
 expand_mode = 5
 
-[node name="Label" type="Label" parent="TextureRect2"]
+[node name="AmmoCount" type="Label" parent="TextureRect2"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.102
@@ -50,16 +51,18 @@ offset_left = 30.13
 offset_top = -3.268
 offset_right = 10.995
 offset_bottom = 0.0319824
+theme_override_fonts/font = ExtResource("3_a3rs0")
 theme_override_font_sizes/font_size = 48
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("3_hfog0")
+script = ExtResource("4_86dfb")
 
 [node name="TextureButton" type="TextureButton" parent="TextureRect2"]
-offset_left = 52.0
-offset_top = 64.0
-offset_right = 108.0
-offset_bottom = 104.0
+layout_mode = 0
+offset_left = 25.0
+offset_top = 62.0
+offset_right = 81.0
+offset_bottom = 102.0
 texture_normal = ExtResource("3_1ky5q")
 stretch_mode = 4
