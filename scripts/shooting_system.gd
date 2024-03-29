@@ -17,7 +17,7 @@ func _ready():
 	ammo_in_magazine = magazine_size
 	
 #Changed Shoot event to a shoot Toggle to make anitmations easier
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("Shoot_Toggle"):
 		shooting_enabled = not shooting_enabled
 	elif Input.is_action_just_pressed("Shoot") and shooting_enabled:
