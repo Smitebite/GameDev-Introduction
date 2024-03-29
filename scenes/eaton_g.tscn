@@ -1,4 +1,4 @@
-[gd_scene load_steps=225 format=3 uid="uid://bpndalxdtxrv7"]
+[gd_scene load_steps=227 format=3 uid="uid://bpndalxdtxrv7"]
 
 [ext_resource type="Texture2D" uid="uid://joeh6swp8ks3" path="res://assets/eaton_g_outline.png" id="1_plgjy"]
 [ext_resource type="Texture2D" uid="uid://bjisuk3kkx253" path="res://assets/map-assets/Room_Builder_Floors_32x32.png" id="2_15i8c"]
@@ -2864,6 +2864,9 @@ states/walk/node = SubResource("AnimationNodeBlendTree_jdgmd")
 states/walk/position = Vector2(420, 200)
 transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_ixgj2"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_kcytt")]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nh3u1"]
+radius = 14.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6h77v"]
 atlas = ExtResource("13_b4p3h")
 region = Rect2(0, 32, 32, 32)
@@ -3794,6 +3797,9 @@ radius = 59.0762
 radius = 4.0
 height = 24.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yenxj"]
+radius = 17.0
+
 [node name="Node2D" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -3858,13 +3864,24 @@ parameters/walk/TimeScale/scale = 1.0
 parameters/walk/Walk_BlendSpace2D/blend_position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
+visible = false
 zoom = Vector2(2, 2)
 
 [node name="ShootingSystem" type="Marker2D" parent="Character"]
+visible = false
 script = ExtResource("6_8q2rr")
 
+[node name="player_hitbox" type="Area2D" parent="Character"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/player_hitbox"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_nh3u1")
+
+[node name="attack_cooldown" type="Timer" parent="Character"]
+wait_time = 0.5
+
 [node name="Enemy" type="CharacterBody2D" parent="."]
-position = Vector2(-177, -22)
+position = Vector2(621, 295)
 script = ExtResource("12_282t6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
@@ -3873,13 +3890,11 @@ sprite_frames = SubResource("SpriteFrames_esg2o")
 animation = &"Zom_Walk_L"
 
 [node name="detection_area" type="Area2D" parent="Enemy"]
-visible = false
 position = Vector2(-2, 1)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/detection_area"]
-visible = false
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_povdy")
 
@@ -3887,5 +3902,13 @@ shape = SubResource("CircleShape2D_povdy")
 position = Vector2(1, 3)
 shape = SubResource("CapsuleShape2D_ojk24")
 
+[node name="enemy_hitbox" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/enemy_hitbox"]
+shape = SubResource("CircleShape2D_yenxj")
+
+[connection signal="body_entered" from="Character/player_hitbox" to="Character" method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="Character/player_hitbox" to="Character" method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="Character/attack_cooldown" to="Character" method="_on_attack_cooldown_timeout"]
 [connection signal="body_entered" from="Enemy/detection_area" to="Enemy" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Enemy/detection_area" to="Enemy" method="_on_detection_area_body_exited"]
