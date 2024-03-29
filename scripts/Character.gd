@@ -6,6 +6,13 @@ const MAX_SPEED = 150
 const SPRINT_MULTIPLIER = 1.5
 var shooting_enabled = false
 
+var enemy_inattack_range = false
+var enemy_attack_cooldown = true
+var health = 100
+var player_alive = true
+
+
+
 enum {IDLE, WALK}
 var state = IDLE
 
@@ -27,7 +34,13 @@ var current_max_speed = MAX_SPEED
 
 func _physics_process(delta):
 	move(delta)
+	enemy_attack()
 	animate()
+	if health <= 0:
+		player_alive = false # need end screen or somthing 
+		health = 0 
+		print("player has died")
+		
 
 func move(delta):
 	var input_vector = Input.get_vector("Left", "Right", "Up", "Down")
@@ -80,3 +93,28 @@ func animate() -> void:
 	state_machine.travel(animTree_state_keys[state])
 	animationTree.set(blend_pos_paths[state], blend_position)
 
+func player():
+	pass
+
+#checks of enemy entered the hitbox range 
+func _on_player_hitbox_body_entered(body):
+	if body.has_method("enemy"):
+		enemy_inattack_range = true
+
+#checks of enemy left the hitbox range 
+func _on_player_hitbox_body_exited(body):
+	if body.has_method("enemy"):
+		enemy_inattack_range = false 
+		
+func enemy_attack():
+	if enemy_inattack_range and enemy_attack_cooldown == true:
+		health = health - 10
+		enemy_attack_cooldown = false
+		$attack_cooldown.start()
+		print(health)
+		
+		
+
+
+func _on_attack_cooldown_timeout():
+	enemy_attack_cooldown = true 
