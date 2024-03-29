@@ -10,6 +10,7 @@ var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
+var attack_ip = false #attack in prog
 
 
 
@@ -62,7 +63,7 @@ func move(delta):
 	#	apply_friction(FRICTION * delta)
 	
 	#if input_vector == Vector2.ZERO and shooting_enabled == true:
-	#	state = IDLE_shotgun
+	#	state = IDLE_attack
 	#	apply_friction(FRICTION * delta)
 	
 	#TODO this needs to change for Walking with weapons 
@@ -106,6 +107,7 @@ func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_inattack_range = false 
 		
+		
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
 		health = health - 10
@@ -115,6 +117,6 @@ func enemy_attack():
 		
 		
 
-
+#cooldown between taking damage 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true 

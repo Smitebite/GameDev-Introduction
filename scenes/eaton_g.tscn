@@ -1,4 +1,4 @@
-[gd_scene load_steps=227 format=3 uid="uid://bpndalxdtxrv7"]
+[gd_scene load_steps=228 format=3 uid="uid://bpndalxdtxrv7"]
 
 [ext_resource type="Texture2D" uid="uid://joeh6swp8ks3" path="res://assets/eaton_g_outline.png" id="1_plgjy"]
 [ext_resource type="Texture2D" uid="uid://bjisuk3kkx253" path="res://assets/map-assets/Room_Builder_Floors_32x32.png" id="2_15i8c"]
@@ -11,11 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://do1hj7wrarxvj" path="res://assets/map-assets/5_Classroom_and_library_Shadowless_32x32.png" id="4_wwkou"]
 [ext_resource type="Script" path="res://scripts/shooting_system.gd" id="6_8q2rr"]
 [ext_resource type="Texture2D" uid="uid://6qifykde3jvk" path="res://assets/character/character_shoot_pistol.png" id="9_srbln"]
-[ext_resource type="Script" path="res://scenes/Enemy.gd" id="12_282t6"]
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="12_282t6"]
 [ext_resource type="Texture2D" uid="uid://crg1q55sd4eyh" path="res://assets/zombie/zombie_attack.png" id="13_b4p3h"]
 [ext_resource type="Texture2D" uid="uid://10jco07iqwb4" path="res://assets/zombie/zombie_death.png" id="14_jod5r"]
 [ext_resource type="Texture2D" uid="uid://dm74xr561g6vl" path="res://assets/zombie/zombie_idle.png" id="15_75wrm"]
 [ext_resource type="Texture2D" uid="uid://c5wake5573lo7" path="res://assets/zombie/zombie_walk.png" id="16_iluws"]
+[ext_resource type="PackedScene" uid="uid://c8xtm4apeuo3e" path="res://scenes/bullet.tscn" id="17_642bl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qj60j"]
 texture = ExtResource("2_15i8c")
@@ -2864,8 +2865,9 @@ states/walk/node = SubResource("AnimationNodeBlendTree_jdgmd")
 states/walk/position = Vector2(420, 200)
 transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_ixgj2"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_kcytt")]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nh3u1"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wopr7"]
 radius = 14.0
+height = 36.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6h77v"]
 atlas = ExtResource("13_b4p3h")
@@ -3408,7 +3410,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.1,
 "texture": SubResource("AtlasTexture_3sk8p")
 }, {
 "duration": 1.0,
@@ -3437,7 +3439,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.1,
 "texture": SubResource("AtlasTexture_bmwvq")
 }, {
 "duration": 1.0,
@@ -3797,10 +3799,11 @@ radius = 59.0762
 radius = 4.0
 height = 24.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yenxj"]
-radius = 17.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hj3jf"]
+radius = 15.0
+height = 44.0
 
-[node name="Node2D" type="Node2D"]
+[node name="World" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1280.0
@@ -3864,18 +3867,16 @@ parameters/walk/TimeScale/scale = 1.0
 parameters/walk/Walk_BlendSpace2D/blend_position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
-visible = false
 zoom = Vector2(2, 2)
 
 [node name="ShootingSystem" type="Marker2D" parent="Character"]
-visible = false
 script = ExtResource("6_8q2rr")
 
 [node name="player_hitbox" type="Area2D" parent="Character"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character/player_hitbox"]
 position = Vector2(1, 0)
-shape = SubResource("CircleShape2D_nh3u1")
+shape = SubResource("CapsuleShape2D_wopr7")
 
 [node name="attack_cooldown" type="Timer" parent="Character"]
 wait_time = 0.5
@@ -3887,7 +3888,8 @@ script = ExtResource("12_282t6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_esg2o")
-animation = &"Zom_Walk_L"
+animation = &"Zom_Attack_L"
+frame_progress = 0.571968
 
 [node name="detection_area" type="Area2D" parent="Enemy"]
 position = Vector2(-2, 1)
@@ -3905,10 +3907,21 @@ shape = SubResource("CapsuleShape2D_ojk24")
 [node name="enemy_hitbox" type="Area2D" parent="Enemy"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/enemy_hitbox"]
-shape = SubResource("CircleShape2D_yenxj")
+shape = SubResource("CapsuleShape2D_hj3jf")
+
+[node name="Bullet" parent="." instance=ExtResource("17_642bl")]
+position = Vector2(-163, -74)
+collision_layer = 2
+collision_mask = 2
 
 [connection signal="body_entered" from="Character/player_hitbox" to="Character" method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="Character/player_hitbox" to="Character" method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="Character/attack_cooldown" to="Character" method="_on_attack_cooldown_timeout"]
 [connection signal="body_entered" from="Enemy/detection_area" to="Enemy" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Enemy/detection_area" to="Enemy" method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="Enemy/enemy_hitbox" to="Enemy" method="_on_enemy_hitbox_area_entered"]
+[connection signal="body_entered" from="Enemy/enemy_hitbox" to="Enemy" method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_entered" from="Enemy/enemy_hitbox" to="Bullet" method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="Enemy/enemy_hitbox" to="Enemy" method="_on_enemy_hitbox_body_exited"]
+[connection signal="area_entered" from="Bullet" to="Enemy" method="_on_bullet_area_entered"]
+[connection signal="body_entered" from="Bullet" to="Enemy" method="_on_bullet_body_entered"]
