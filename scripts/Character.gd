@@ -37,6 +37,7 @@ func _physics_process(delta):
 	move(delta)
 	enemy_attack()
 	animate()
+	update_health()
 	if health <= 0:
 		player_alive = false # need end screen or somthing 
 		health = 0 
@@ -120,3 +121,12 @@ func enemy_attack():
 #cooldown between taking damage 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true 
+	
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+	
+	if health >= 100:
+		healthbar.visible = false 
+	else:
+		healthbar.visible = true

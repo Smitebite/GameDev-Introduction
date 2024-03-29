@@ -3806,6 +3806,7 @@ height = 44.0
 [node name="World" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 1280.0
 offset_bottom = 720.0
 
@@ -3881,8 +3882,17 @@ shape = SubResource("CapsuleShape2D_wopr7")
 [node name="attack_cooldown" type="Timer" parent="Character"]
 wait_time = 0.5
 
+[node name="healthbar" type="ProgressBar" parent="Character"]
+modulate = Color(0, 0.780392, 0.14902, 1)
+offset_left = -15.0
+offset_top = 13.0
+offset_right = 295.0
+offset_bottom = 53.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+
 [node name="Enemy" type="CharacterBody2D" parent="."]
-position = Vector2(621, 295)
+position = Vector2(380, 343)
 script = ExtResource("12_282t6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
@@ -3909,10 +3919,171 @@ shape = SubResource("CapsuleShape2D_ojk24")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/enemy_hitbox"]
 shape = SubResource("CapsuleShape2D_hj3jf")
 
+[node name="enemy_healthbar" type="ProgressBar" parent="Enemy"]
+modulate = Color(0.890196, 0, 0, 1)
+offset_left = -15.0
+offset_top = 16.0
+offset_right = 295.0
+offset_bottom = 56.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
 [node name="Bullet" parent="." instance=ExtResource("17_642bl")]
-position = Vector2(-163, -74)
+position = Vector2(-164, -70)
 collision_layer = 2
 collision_mask = 2
+
+[node name="Enemy2" type="CharacterBody2D" parent="."]
+position = Vector2(476, 220)
+script = ExtResource("12_282t6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy2"]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_esg2o")
+animation = &"Zom_Attack_L"
+frame_progress = 0.571968
+
+[node name="detection_area" type="Area2D" parent="Enemy2"]
+position = Vector2(-2, 1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2/detection_area"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_povdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2"]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_ojk24")
+
+[node name="enemy_hitbox" type="Area2D" parent="Enemy2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2/enemy_hitbox"]
+shape = SubResource("CapsuleShape2D_hj3jf")
+
+[node name="enemy_healthbar" type="ProgressBar" parent="Enemy2"]
+modulate = Color(0.890196, 0, 0, 1)
+offset_left = -15.0
+offset_top = 16.0
+offset_right = 295.0
+offset_bottom = 56.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Enemy3" type="CharacterBody2D" parent="."]
+position = Vector2(606, 106)
+script = ExtResource("12_282t6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy3"]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_esg2o")
+animation = &"Zom_Attack_L"
+frame_progress = 0.571968
+
+[node name="detection_area" type="Area2D" parent="Enemy3"]
+position = Vector2(-2, 1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3/detection_area"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_povdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3"]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_ojk24")
+
+[node name="enemy_hitbox" type="Area2D" parent="Enemy3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3/enemy_hitbox"]
+shape = SubResource("CapsuleShape2D_hj3jf")
+
+[node name="enemy_healthbar" type="ProgressBar" parent="Enemy3"]
+modulate = Color(0.890196, 0, 0, 1)
+offset_left = -15.0
+offset_top = 16.0
+offset_right = 295.0
+offset_bottom = 56.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Enemy4" type="CharacterBody2D" parent="."]
+position = Vector2(96, 97)
+script = ExtResource("12_282t6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy4"]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_esg2o")
+animation = &"Zom_Attack_L"
+frame_progress = 0.571968
+
+[node name="detection_area" type="Area2D" parent="Enemy4"]
+position = Vector2(-2, 1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy4/detection_area"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_povdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy4"]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_ojk24")
+
+[node name="enemy_hitbox" type="Area2D" parent="Enemy4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy4/enemy_hitbox"]
+shape = SubResource("CapsuleShape2D_hj3jf")
+
+[node name="enemy_healthbar" type="ProgressBar" parent="Enemy4"]
+modulate = Color(0.890196, 0, 0, 1)
+offset_left = -15.0
+offset_top = 16.0
+offset_right = 295.0
+offset_bottom = 56.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Enemy5" type="CharacterBody2D" parent="."]
+position = Vector2(621, 295)
+script = ExtResource("12_282t6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy5"]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_esg2o")
+animation = &"Zom_Attack_L"
+frame_progress = 0.571968
+
+[node name="detection_area" type="Area2D" parent="Enemy5"]
+position = Vector2(-2, 1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy5/detection_area"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_povdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy5"]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_ojk24")
+
+[node name="enemy_hitbox" type="Area2D" parent="Enemy5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy5/enemy_hitbox"]
+shape = SubResource("CapsuleShape2D_hj3jf")
+
+[node name="enemy_healthbar" type="ProgressBar" parent="Enemy5"]
+modulate = Color(0.890196, 0, 0, 1)
+offset_left = -15.0
+offset_top = 16.0
+offset_right = 295.0
+offset_bottom = 56.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
 
 [connection signal="body_entered" from="Character/player_hitbox" to="Character" method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="Character/player_hitbox" to="Character" method="_on_player_hitbox_body_exited"]
@@ -3925,3 +4096,27 @@ collision_mask = 2
 [connection signal="body_exited" from="Enemy/enemy_hitbox" to="Enemy" method="_on_enemy_hitbox_body_exited"]
 [connection signal="area_entered" from="Bullet" to="Enemy" method="_on_bullet_area_entered"]
 [connection signal="body_entered" from="Bullet" to="Enemy" method="_on_bullet_body_entered"]
+[connection signal="body_entered" from="Enemy2/detection_area" to="Enemy2" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Enemy2/detection_area" to="Enemy2" method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="Enemy2/enemy_hitbox" to="Enemy2" method="_on_enemy_hitbox_area_entered"]
+[connection signal="body_entered" from="Enemy2/enemy_hitbox" to="Bullet" method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_entered" from="Enemy2/enemy_hitbox" to="Enemy2" method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="Enemy2/enemy_hitbox" to="Enemy2" method="_on_enemy_hitbox_body_exited"]
+[connection signal="body_entered" from="Enemy3/detection_area" to="Enemy3" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Enemy3/detection_area" to="Enemy3" method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="Enemy3/enemy_hitbox" to="Enemy3" method="_on_enemy_hitbox_area_entered"]
+[connection signal="body_entered" from="Enemy3/enemy_hitbox" to="Bullet" method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_entered" from="Enemy3/enemy_hitbox" to="Enemy3" method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="Enemy3/enemy_hitbox" to="Enemy3" method="_on_enemy_hitbox_body_exited"]
+[connection signal="body_entered" from="Enemy4/detection_area" to="Enemy4" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Enemy4/detection_area" to="Enemy4" method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="Enemy4/enemy_hitbox" to="Enemy4" method="_on_enemy_hitbox_area_entered"]
+[connection signal="body_entered" from="Enemy4/enemy_hitbox" to="Bullet" method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_entered" from="Enemy4/enemy_hitbox" to="Enemy4" method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="Enemy4/enemy_hitbox" to="Enemy4" method="_on_enemy_hitbox_body_exited"]
+[connection signal="body_entered" from="Enemy5/detection_area" to="Enemy5" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Enemy5/detection_area" to="Enemy5" method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="Enemy5/enemy_hitbox" to="Enemy5" method="_on_enemy_hitbox_area_entered"]
+[connection signal="body_entered" from="Enemy5/enemy_hitbox" to="Bullet" method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_entered" from="Enemy5/enemy_hitbox" to="Enemy5" method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="Enemy5/enemy_hitbox" to="Enemy5" method="_on_enemy_hitbox_body_exited"]

@@ -11,6 +11,7 @@ var bullet_hit = false
 
 #Tracks player postion uses postion for animation 
 func _physics_process(_delta):
+	update_health()
 	deal_with_damage()
 	if enemy_attacking:
 		move_and_collide(Vector2(0,0)) # so zombie can hoplfully collide with walls :D
@@ -77,6 +78,14 @@ func deal_with_damage():
 		if health <= 0:
 			self.queue_free() #deletes the enemy
 
+func update_health():
+	var enemy_healthbar = $enemy_healthbar
+	enemy_healthbar.value = health
+	
+	if health >= 100:
+		enemy_healthbar.visible = false 
+	else:
+		enemy_healthbar.visible = true
 
 
 
