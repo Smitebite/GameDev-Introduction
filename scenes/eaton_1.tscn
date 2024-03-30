@@ -4191,6 +4191,122 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_uwgi8"]
+resource_name = "Idle_back_pistol"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle_back_pistol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_gp6fu"]
+resource_name = "Idle_front_pistol"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle_front_pistol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_gfdo1"]
+resource_name = "Idle_left_pistol"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle_left_pistol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_wf54c"]
+resource_name = "Idle_right_pistol"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle_right_pistol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="Animation" id="Animation_611v1"]
 length = 0.001
 tracks/0/type = "value"
@@ -4247,6 +4363,35 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_ru2ld"]
+resource_name = "Walk_back_pistol"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk_back_pistol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="Animation" id="Animation_1og31"]
 resource_name = "Walk_front"
 length = 0.4
@@ -4262,6 +4407,35 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"Walk_front"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_e5s03"]
+resource_name = "Walk_front_pistol"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk_front_pistol"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -4305,6 +4479,35 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_uxd38"]
+resource_name = "Walk_left_pistol"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk_left_pistol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="Animation" id="Animation_5a0fj"]
 resource_name = "Walk_right"
 length = 0.4
@@ -4329,6 +4532,35 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.00171849, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_q0aen"]
+resource_name = "Walk_right_pistol"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk_right_pistol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -4450,238 +4682,6 @@ tracks/1/keys = {
 "values": [0, 0, 1, 1]
 }
 
-[sub_resource type="Animation" id="Animation_uxd38"]
-resource_name = "Walk_left_pistol"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Walk_left_pistol"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_q0aen"]
-resource_name = "Walk_right_pistol"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Walk_right_pistol"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_e5s03"]
-resource_name = "Walk_front_pistol"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Walk_front_pistol"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_ru2ld"]
-resource_name = "Walk_back_pistol"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Walk_back_pistol"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_gfdo1"]
-resource_name = "Idle_left_pistol"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Idle_left_pistol"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_wf54c"]
-resource_name = "Idle_right_pistol"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Idle_right_pistol"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_gp6fu"]
-resource_name = "Idle_front_pistol"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Idle_front_pistol"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_uwgi8"]
-resource_name = "Idle_back_pistol"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Idle_back_pistol"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cy58q"]
 _data = {
 "Death_back": SubResource("Animation_q7nhn"),
@@ -4709,26 +4709,26 @@ _data = {
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_blgpt"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5bqjp"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ofic4"]
 animation = &"idle_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3nati"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_axvur"]
 animation = &"idle_right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hooxh"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hrjc7"]
 animation = &"idle_front"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q0f68"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lrleq"]
 animation = &"idle_back"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_k0asy"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_5bqjp")
+blend_point_0/node = SubResource("AnimationNodeAnimation_ofic4")
 blend_point_0/pos = Vector2(-1, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_3nati")
+blend_point_1/node = SubResource("AnimationNodeAnimation_axvur")
 blend_point_1/pos = Vector2(1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_hooxh")
+blend_point_2/node = SubResource("AnimationNodeAnimation_hrjc7")
 blend_point_2/pos = Vector2(0, 1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_q0f68")
+blend_point_3/node = SubResource("AnimationNodeAnimation_lrleq")
 blend_point_3/pos = Vector2(0, -1)
 blend_mode = 1
 
@@ -4742,26 +4742,26 @@ node_connections = [&"TimeScale", 0, &"idle_BlendSpace2D", &"output", 0, &"TimeS
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_hqasp"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_svhcw"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5k3yc"]
 animation = &"Idle_left_pistol"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u4hra"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6f6g3"]
 animation = &"Idle_front_pistol"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_orxwh"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0f8ty"]
 animation = &"Idle_right_pistol"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dell6"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1syxy"]
 animation = &"Idle_back_pistol"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_hrmig"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_svhcw")
+blend_point_0/node = SubResource("AnimationNodeAnimation_5k3yc")
 blend_point_0/pos = Vector2(-1, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_u4hra")
+blend_point_1/node = SubResource("AnimationNodeAnimation_6f6g3")
 blend_point_1/pos = Vector2(0, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_orxwh")
+blend_point_2/node = SubResource("AnimationNodeAnimation_0f8ty")
 blend_point_2/pos = Vector2(1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_dell6")
+blend_point_3/node = SubResource("AnimationNodeAnimation_1syxy")
 blend_point_3/pos = Vector2(0, -1)
 blend_mode = 1
 
@@ -4775,26 +4775,26 @@ node_connections = [&"TimeScale", 0, &"idle_pistol_BlendSpace2D", &"output", 0, 
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_gbs02"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ftee5"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tqe7v"]
 animation = &"Walk_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ldk5w"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xrj1y"]
 animation = &"Walk_right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sbmih"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0ppdp"]
 animation = &"Walk_front"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hbkys"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wwpl1"]
 animation = &"Walk_back"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_fo4bp"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_ftee5")
+blend_point_0/node = SubResource("AnimationNodeAnimation_tqe7v")
 blend_point_0/pos = Vector2(-1, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_ldk5w")
+blend_point_1/node = SubResource("AnimationNodeAnimation_xrj1y")
 blend_point_1/pos = Vector2(1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_sbmih")
+blend_point_2/node = SubResource("AnimationNodeAnimation_0ppdp")
 blend_point_2/pos = Vector2(0, 1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_hbkys")
+blend_point_3/node = SubResource("AnimationNodeAnimation_wwpl1")
 blend_point_3/pos = Vector2(0, -1)
 blend_mode = 1
 
@@ -4808,26 +4808,26 @@ node_connections = [&"TimeScale", 0, &"Walk_BlendSpace2D", &"output", 0, &"TimeS
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_s34xj"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_soyvi"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s4hf3"]
 animation = &"Walk_left_pistol"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yyw3f"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i54jt"]
 animation = &"Walk_front_pistol"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ql6w1"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x2pwc"]
 animation = &"Walk_right_pistol"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0tp0l"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xbhif"]
 animation = &"Walk_back_pistol"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_p1x7e"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_soyvi")
+blend_point_0/node = SubResource("AnimationNodeAnimation_s4hf3")
 blend_point_0/pos = Vector2(-1, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_yyw3f")
+blend_point_1/node = SubResource("AnimationNodeAnimation_i54jt")
 blend_point_1/pos = Vector2(0, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_ql6w1")
+blend_point_2/node = SubResource("AnimationNodeAnimation_x2pwc")
 blend_point_2/pos = Vector2(1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_0tp0l")
+blend_point_3/node = SubResource("AnimationNodeAnimation_xbhif")
 blend_point_3/pos = Vector2(0, -1)
 blend_mode = 1
 
