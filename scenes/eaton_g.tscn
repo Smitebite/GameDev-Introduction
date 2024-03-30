@@ -3875,6 +3875,14 @@ script = ExtResource("17_nlsp3")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="transition_to_eaton_1_point"]
 polygon = PackedVector2Array(648, 42, 640, 21, 665, 9, 740, 9, 729, 42)
 
+[node name="collisions" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(646.419, 51.005, 537.525, 52.4192, 538.939, 355.061, 530.454, 350.818, 530.454, 275.865, 326.807, 273.036, 331.05, 227.782, 335.293, 258.894, 530.454, 261.723, 530.454, 172.627, 333.878, 169.799, 333.878, 193.84, 326.807, 151.414, 533.282, 148.586, 531.868, 83.5319, 336.707, 83.5319, 335.293, 117.473, 323.979, 116.059, 325.393, 48.1765, 524.797, 49.5908, 541.768, 34.0344, 646.419, 36.8628)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(729.203, 38.2765, 727.868, 437.394, 737.212, 437.394, 735.877, 307.914, 1204.41, 309.249, 1204.41, 610.923, 734.542, 609.588, 735.877, 498.796, 726.533, 498.796, 731.873, 614.927, 878.705, 661.647, 1263.14, 626.941, 1223.09, 242.507, 746.556, 277.213, 767.913, 48.9552)
+
 [connection signal="body_entered" from="Character/player_hitbox" to="Character" method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="Character/player_hitbox" to="Character" method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="Character/attack_cooldown" to="Character" method="_on_attack_cooldown_timeout"]
