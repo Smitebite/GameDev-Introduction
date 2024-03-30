@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://bspwmmi7xc8cy"]
+
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_n1mjx"]
+[ext_resource type="Texture2D" uid="uid://ibeycr6n7j8n" path="res://assets/npc/Johnsin_idle.png" id="2_f7u0f"]
+[ext_resource type="PackedScene" uid="uid://7q0ht6iotje8" path="res://dialogue/dialogue.tscn" id="3_x8uqx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx5bd"]
+atlas = ExtResource("2_f7u0f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvygt"]
+atlas = ExtResource("2_f7u0f")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2htk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx5bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvygt")
+}],
+"loop": true,
+"name": &"Johnsin_Idle_L",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ssgs"]
+radius = 7.0
+height = 26.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0q7tq"]
+radius = 40.0125
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_n1mjx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d2htk")
+animation = &"Johnsin_Idle_L"
+frame_progress = 0.794202
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1, 4)
+shape = SubResource("CapsuleShape2D_0ssgs")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+shape = SubResource("CircleShape2D_0q7tq")
+
+[node name="Dialogue" parent="." instance=ExtResource("3_x8uqx")]
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]
