@@ -3794,7 +3794,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_povdy"]
-radius = 124.258
+radius = 79.0253
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ojk24"]
 radius = 4.0
@@ -3841,6 +3841,8 @@ layer_0/tile_data = PackedInt32Array(1835018, 131072, 0, 1835016, 0, 0, 1835014,
 [node name="Character" type="CharacterBody2D" parent="."]
 position = Vector2(674, 61)
 collision_layer = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("2_nn6hf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
@@ -4088,6 +4090,28 @@ show_percentage = false
 
 [node name="NPC" parent="." instance=ExtResource("18_rf5qo")]
 position = Vector2(1179, 462)
+
+[node name="collisions" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(41, -62)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(3, 1, 496, 5, 496, 101, 607, 100, 608, 64, 664, 63, 661, 96, 698, 99, 700, 102, 692, 355, 692, 381, 1162, 377, 1166, 382, 1166, 388, 1166, 675, 692, 679, 689, 660, 606, 662, 606, 675, 496, 675, 496, 629, 495, 453, 492, 631, -3, 633, 3, 5, -12, 4, -87, 728, 1274, 745, 1242, 232, 745, 241, 754, 0, 252, -67)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(496, 100, 493, 113, 288, 114, 289, 177, 293, 178, 293, 134, 494, 136, 493, 211, 290, 211, 289, 258, 292, 259, 293, 233, 494, 232, 494, 322, 292, 323, 293, 291, 289, 291, 290, 350, 493, 349, 494, 417, 497, 417)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(432, 451, 432, 455, 304, 455, 305, 503, 300, 503, 302, 435, 304, 435, 304, 452)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(465, 452, 496, 451, 496, 629, 492, 628, 493, 454, 464, 455)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(692, 676, 693, 563, 689, 563)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(691, 355, 690, 355, 690, 499, 692, 498, 692, 355)
 
 [connection signal="body_entered" from="Character/player_hitbox" to="Character" method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="Character/player_hitbox" to="Character" method="_on_player_hitbox_body_exited"]
