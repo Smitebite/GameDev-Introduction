@@ -105,7 +105,9 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("1_o1i6s")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "Swap Weapon ------ Q
+text = "Reload Weapon ---- R
+
+Chat with NPC ---- Q
 
 
 "

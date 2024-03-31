@@ -14,7 +14,7 @@ var attack_ip = false #attack in prog
 
 
 
-enum {IDLE, IDLE_PISTOL, WALK, WALK_PISTOL}
+enum {IDLE, IDLE_PISTOL, WALK, WALK_PISTOL, SHOOT_PISTOL}
 var state = IDLE
 
 @onready var animationTree = $AnimationTree
@@ -25,14 +25,16 @@ var blend_pos_paths = [
 	"parameters/idle/idle_BlendSpace2D/blend_position",
 	"parameters/idle_pistol/idle_pistol_BlendSpace2D/blend_position",
 	"parameters/walk/Walk_BlendSpace2D/blend_position",
-	"parameters/walk_pistol/Walk_pistol_BlendSpace2D/blend_position"
+	"parameters/walk_pistol/Walk_pistol_BlendSpace2D/blend_position",
+	"parameters/shoot_pistol/Shoot_pistol_BlendSpace2D/blend_position"
 ]
 
 var animTree_state_keys = [
 	"idle",
 	"idle_pistol",
 	"walk",
-	"walk_pistol"
+	"walk_pistol",
+	"shoot_pistol"
 ]
 
 # Member variable to keep track of the current max speed, including any sprint modifications
@@ -59,7 +61,9 @@ func move(delta):
 		current_max_speed *= SPRINT_MULTIPLIER  # Adjust for sprinting
 
 	if input_vector == Vector2.ZERO:
-		if shooting_enabled:
+		if Input.is_action_just_pressed("Shoot") and shooting_enabled:
+			state = SHOOT_PISTOL
+		elif shooting_enabled:
 			state = IDLE_PISTOL
 		else:
 			state = IDLE
