@@ -1,3 +1,11 @@
+## Description: Ammo count script for handling how much ammo the character has left.
+## Author: Seth Daniels, Nico Gatapia, Jacob Horton, Elijah Toliver, Gilbert Vandegrift
+## Date Created: March 10, 2024
+## Date Modified: March 29, 2024
+## Version: Development
+## Godot Version: 4.2.1
+## License: MIT License
+
 extends Label
 
 var magazine_size = 10

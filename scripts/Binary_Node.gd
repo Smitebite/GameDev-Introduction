@@ -1,3 +1,11 @@
+## Description: Main menu script for the title in binary scrolling.
+## Author: Seth Daniels, Nico Gatapia, Jacob Horton, Elijah Toliver, Gilbert Vandegrift
+## Date Created: March 10, 2024
+## Date Modified: March 10, 2024
+## Version: Development
+## Godot Version: 4.2.1
+## License: MIT License
+
 extends Node2D
 
 # Speed of the scroll in pixels per second for each pair

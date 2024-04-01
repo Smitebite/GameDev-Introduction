@@ -1,3 +1,11 @@
+## Description: Enemy script for handling movement, animations, and attacking.
+## Author: Seth Daniels, Nico Gatapia, Jacob Horton, Elijah Toliver, Gilbert Vandegrift
+## Date Created: March 29, 2024
+## Date Modified: March 29, 2024
+## Version: Development
+## Godot Version: 4.2.1
+## License: MIT License
+
 extends CharacterBody2D
 # higher the speed slower the enemy is
 var speed = 50

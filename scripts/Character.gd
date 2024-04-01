@@ -1,3 +1,11 @@
+## Description: Character script for handling movement and animation.
+## Author: Seth Daniels, Nico Gatapia, Jacob Horton, Elijah Toliver, Gilbert Vandegrift
+## Date Created: March 10, 2024
+## Date Modified: March 31, 2024
+## Version: Development
+## Godot Version: 4.2.1
+## License: MIT License
+
 extends CharacterBody2D
 
 const ACCELERATION = 600
