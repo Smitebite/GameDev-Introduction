@@ -1,4 +1,4 @@
-[gd_scene load_steps=189 format=3 uid="uid://ctly4heguffmq"]
+[gd_scene load_steps=191 format=3 uid="uid://ctly4heguffmq"]
 
 [ext_resource type="Texture2D" uid="uid://co2kal1wj5epn" path="res://assets/eaton_1-1.png.png" id="1_c1edr"]
 [ext_resource type="Texture2D" uid="uid://bjisuk3kkx253" path="res://assets/map-assets/Room_Builder_Floors_32x32.png" id="2_2n0rq"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" path="res://scripts/shooting_system.gd" id="11_ok7bb"]
 [ext_resource type="Script" path="res://scenes/transition_to_eaton_g_point.gd" id="12_acbro"]
 [ext_resource type="Texture2D" uid="uid://ddjgtkt3dymua" path="res://assets/character/character_walk_pistol.png" id="13_8yuam"]
+[ext_resource type="AudioStream" uid="uid://ci7c5wgdmgbfq" path="res://assets/sounds/pistol_shot.mp3" id="16_4ohlj"]
+[ext_resource type="PackedScene" uid="uid://b8tdo1asku2m1" path="res://scenes/HUD.tscn" id="17_6eru8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tptof"]
 texture = ExtResource("2_2n0rq")
@@ -4466,6 +4468,122 @@ tracks/1/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_nicbq"]
+resource_name = "Shoot_back_pistol"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Shoot_back_pistol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_2kxfj"]
+resource_name = "Shoot_front_pistol"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Shoot_front_pistol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_siysa"]
+resource_name = "Shoot_left_pistol"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Shoot_left_pistol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_lhehd"]
+resource_name = "Shoot_right_pistol"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Shoot_right_pistol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="Animation" id="Animation_rj07g"]
 resource_name = "Walk_back"
 length = 0.4
@@ -4812,122 +4930,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 0, 1, 1]
-}
-
-[sub_resource type="Animation" id="Animation_siysa"]
-resource_name = "Shoot_left_pistol"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Shoot_left_pistol"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_lhehd"]
-resource_name = "Shoot_right_pistol"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Shoot_right_pistol"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_2kxfj"]
-resource_name = "Shoot_front_pistol"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Shoot_front_pistol"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_nicbq"]
-resource_name = "Shoot_back_pistol"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Shoot_back_pistol"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cy58q"]
@@ -5323,6 +5325,9 @@ zoom = Vector2(2, 2)
 [node name="ShootingSystem" type="Marker2D" parent="Character"]
 script = ExtResource("11_ok7bb")
 
+[node name="Gunshot" type="AudioStreamPlayer" parent="Character/ShootingSystem"]
+stream = ExtResource("16_4ohlj")
+
 [node name="player_hitbox" type="Area2D" parent="Character"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character/player_hitbox"]
@@ -5341,6 +5346,8 @@ offset_bottom = 53.0
 scale = Vector2(0.1, 0.1)
 show_percentage = false
 metadata/_edit_use_anchors_ = true
+
+[node name="Hud" parent="." instance=ExtResource("17_6eru8")]
 
 [connection signal="body_entered" from="transition_to_eaton_g_point" to="transition_to_eaton_g_point" method="_on_body_entered"]
 [connection signal="body_entered" from="Character/player_hitbox" to="Character" method="_on_player_hitbox_body_entered"]

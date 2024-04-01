@@ -3,11 +3,10 @@ extends Marker2D
 
 class_name ShootingSystem
 
-signal shot
+signal shot(ammo_in_magazine: int)
 signal gun_reload(ammo_in_magazine: int, ammo_left: int)
 var reload_time = 1
 var reload_status = false
-var shooting_enabled = false
 
 @export var magazine_size = 10
 @export var ammo_in_magazine = 0
@@ -16,15 +15,11 @@ var shooting_enabled = false
 func _ready():
 	ammo_in_magazine = magazine_size
 	
-#Changed Shoot event to a shoot Toggle to make anitmations easier
-func _input(_event):
-	if Input.is_action_just_pressed("Shoot_Toggle"):
-		shooting_enabled = not shooting_enabled
-	elif Input.is_action_just_pressed("Shoot") and shooting_enabled:
-		if Input.is_action_just_pressed("Shoot"):
-			shoot()
-		if Input.is_action_just_pressed("Reload"):
-			reload()
+func _input(event):
+	if Input.is_action_just_pressed("Shoot"):
+		shoot()
+	if Input.is_action_just_pressed("Reload"):
+		reload()
 		
 func reload():
 	if reload_status == true:
@@ -39,14 +34,18 @@ func shoot():
 		reload()
 		return
 	else:
+		$Gunshot.play()
 		var bullet = bullet_scene.instantiate() as Bullet
 		get_tree().root.add_child(bullet)
 		var move_direction = (get_global_mouse_position() - global_position).normalized()
 		bullet.move_direction = move_direction
 		bullet.global_position = global_position
 		bullet.rotation = move_direction.angle()
-	
+
 		ammo_in_magazine -= 1
+		emit_signal('shot')
 		print(ammo_in_magazine)
+		if ammo_in_magazine == 0:
+			reload()
 	
 # https://www.youtube.com/watch?v=nqaSLUdEPL0

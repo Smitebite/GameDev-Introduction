@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d05jb8bnhxqsg"]
+
+[ext_resource type="AudioStream" uid="uid://bkqtsca7c1jh1" path="res://assets/sounds/Reborn - Main Menu.mp3" id="1_qkvox"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_qkvox")
+volume_db = -9.369
+autoplay = true

@@ -18,6 +18,7 @@ config/icon="res://assets/icon.png"
 [autoload]
 
 global="*res://scripts/global.gd"
+Music="*res://scenes/music.tscn"
 
 [display]
 

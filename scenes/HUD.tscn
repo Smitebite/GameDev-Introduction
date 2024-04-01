@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8tdo1asku2m1"]
+
+[ext_resource type="Texture2D" uid="uid://dq0ug7y1bgloy" path="res://assets/ui/weaponbox.png" id="1_4dv7s"]
+[ext_resource type="Texture2D" uid="uid://ql8107a7k50r" path="res://assets/ui/pistol.png" id="2_1v512"]
+[ext_resource type="Texture2D" uid="uid://lxyopiwxda4n" path="res://assets/character/bulletone.png" id="3_1ky5q"]
+[ext_resource type="FontFile" uid="uid://dk8yb3j0hbd1" path="res://PressStart2P-Regular.ttf" id="3_a3rs0"]
+[ext_resource type="Script" path="res://scripts/ammo_count.gd" id="4_86dfb"]
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = -153.0
+offset_right = 226.0
+grow_vertical = 0
+texture = ExtResource("1_4dv7s")
+expand_mode = 5
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 27.0
+offset_right = 201.0
+offset_bottom = 155.0
+texture_normal = ExtResource("2_1v512")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1077.0
+offset_top = -160.0
+offset_right = 1262.0
+offset_bottom = 1.0
+grow_vertical = 0
+texture = ExtResource("1_4dv7s")
+expand_mode = 5
+
+[node name="AmmoCount" type="Label" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.102
+anchor_top = 0.188
+anchor_right = 0.973
+anchor_bottom = 0.888
+offset_left = 30.13
+offset_top = -3.268
+offset_right = 10.995
+offset_bottom = 0.0319824
+theme_override_fonts/font = ExtResource("3_a3rs0")
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_86dfb")
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect2"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 62.0
+offset_right = 81.0
+offset_bottom = 102.0
+texture_normal = ExtResource("3_1ky5q")
+stretch_mode = 4
