@@ -56,7 +56,7 @@ func move(delta):
 	current_max_speed = MAX_SPEED  # Reset to default at each frame
 	if Input.is_action_just_pressed("Shoot_Toggle"):
 		shooting_enabled = not shooting_enabled
-		
+		$"../Hud".visible = not $"../Hud".visible
 	if Input.is_action_pressed("Sprint"):
 		current_max_speed *= SPRINT_MULTIPLIER  # Adjust for sprinting
 

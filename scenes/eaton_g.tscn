@@ -1,4 +1,4 @@
-[gd_scene load_steps=318 format=3 uid="uid://bpndalxdtxrv7"]
+[gd_scene load_steps=319 format=3 uid="uid://bpndalxdtxrv7"]
 
 [ext_resource type="Texture2D" uid="uid://joeh6swp8ks3" path="res://assets/eaton_g_outline.png" id="1_plgjy"]
 [ext_resource type="Texture2D" uid="uid://bjisuk3kkx253" path="res://assets/map-assets/Room_Builder_Floors_32x32.png" id="2_15i8c"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://crg1q55sd4eyh" path="res://assets/zombie/zombie_attack.png" id="13_b4p3h"]
 [ext_resource type="AudioStream" uid="uid://ci7c5wgdmgbfq" path="res://assets/sounds/pistol_shot.mp3" id="14_5g5h6"]
 [ext_resource type="Texture2D" uid="uid://10jco07iqwb4" path="res://assets/zombie/zombie_death.png" id="14_jod5r"]
+[ext_resource type="AudioStream" uid="uid://c1avf5cqedcec" path="res://assets/sounds/reload.wav" id="15_2ybif"]
 [ext_resource type="Texture2D" uid="uid://dm74xr561g6vl" path="res://assets/zombie/zombie_idle.png" id="15_75wrm"]
 [ext_resource type="Texture2D" uid="uid://c5wake5573lo7" path="res://assets/zombie/zombie_walk.png" id="16_iluws"]
 [ext_resource type="PackedScene" uid="uid://c8xtm4apeuo3e" path="res://scenes/bullet.tscn" id="17_642bl"]
@@ -4681,6 +4682,9 @@ script = ExtResource("6_8q2rr")
 
 [node name="Gunshot" type="AudioStreamPlayer2D" parent="Character/ShootingSystem"]
 stream = ExtResource("14_5g5h6")
+
+[node name="Reload" type="AudioStreamPlayer" parent="Character/ShootingSystem"]
+stream = ExtResource("15_2ybif")
 
 [node name="player_hitbox" type="Area2D" parent="Character"]
 
