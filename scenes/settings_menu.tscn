@@ -1,0 +1,136 @@
+[gd_scene load_steps=5 format=3 uid="uid://bttah183m62yh"]
+
+[ext_resource type="FontFile" uid="uid://dk8yb3j0hbd1" path="res://PressStart2P-Regular.ttf" id="1_o1i6s"]
+[ext_resource type="Texture2D" uid="uid://c1eygmbmx43h1" path="res://assets/mainmenu_button.png" id="2_d5rs5"]
+[ext_resource type="Texture2D" uid="uid://b8pbj1b2joosh" path="res://assets/mainmenu_button_hover.png" id="3_d2cqx"]
+[ext_resource type="Script" path="res://scripts/MainMenu_Button.gd" id="4_l5oqs"]
+
+[node name="Credits_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Title" type="RichTextLabel" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_top = 30.0
+offset_right = 256.0
+offset_bottom = 94.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0.878431, 0.0431373, 1)
+theme_override_fonts/normal_font = ExtResource("1_o1i6s")
+theme_override_font_sizes/normal_font_size = 64
+text = "SETTINGS"
+fit_content = true
+context_menu_enabled = true
+
+[node name="Bindings_Title" type="RichTextLabel" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 154.0
+offset_right = 320.0
+offset_bottom = 194.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("1_o1i6s")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[u]Default Key Bindings[/u]
+"
+fit_content = true
+context_menu_enabled = true
+
+[node name="Key_Bindings_1" type="RichTextLabel" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -520.0
+offset_top = 206.0
+offset_right = -40.0
+offset_bottom = 616.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("1_o1i6s")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Up ------- W
+
+Down ----- S
+
+Left ----- A
+
+Right ---- D
+
+Sprint --- L Shift
+
+Weapon --- E
+
+Attack --- Space
+
+Shoot ---- L Click
+
+
+"
+fit_content = true
+tab_size = 1
+context_menu_enabled = true
+
+[node name="Key_Bindings_2" type="RichTextLabel" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 40.0
+offset_top = 206.0
+offset_right = 520.0
+offset_bottom = 662.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("1_o1i6s")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Reload Weapon ---- R
+
+Chat with NPC ---- Q
+
+
+"
+fit_content = true
+tab_size = 1
+context_menu_enabled = true
+
+[node name="MainMenu_Button" type="TextureButton" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -158.0
+offset_top = -94.0
+offset_right = 158.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_d5rs5")
+texture_hover = ExtResource("3_d2cqx")
+script = ExtResource("4_l5oqs")
+
+[connection signal="pressed" from="Background/MainMenu_Button" to="Background/MainMenu_Button" method="_on_pressed"]

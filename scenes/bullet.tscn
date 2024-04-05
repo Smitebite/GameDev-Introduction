@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8xtm4apeuo3e"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_1nkjh"]
+[ext_resource type="Texture2D" uid="uid://lxyopiwxda4n" path="res://assets/character/bulletone.png" id="2_h5log"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uwjg"]
+size = Vector2(8, 8)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_1nkjh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_h5log")
+
+[node name="Bullet_hitbox" type="CollisionShape2D" parent="."]
+scale = Vector2(1.00825, 1.045)
+shape = SubResource("RectangleShape2D_3uwjg")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.423974, 0.405918)
