@@ -5,7 +5,7 @@
 1. Install [Godot Engine](https://godotengine.org/download) for your operating system
 1. Clone this repo
 1. `git fetch origin`
-1. `git checkout sprint-12`
+1. `git checkout final-sprint`
 
 ## Run
 * Open Godot Engine and import the project by selecting the `project.godot` file located in the cloned repository.
