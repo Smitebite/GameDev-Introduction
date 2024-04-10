@@ -18,11 +18,9 @@ var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
-var attack_ip = false #attack in prog
+var attack_ip = false #attack in progress
 
-
-
-enum {IDLE, IDLE_PISTOL, WALK, WALK_PISTOL, SHOOT_PISTOL}
+enum {IDLE, WALK, IDLE_PISTOL, WALK_PISTOL, SHOOT_PISTOL, IDLE_SHOTGUN, WALK_SHOTGUN, SHOOT_SHOTGUN}
 var state = IDLE
 
 @onready var animationTree = $AnimationTree
@@ -31,21 +29,29 @@ var state = IDLE
 var blend_position : Vector2 = Vector2.ZERO
 var blend_pos_paths = [
 	"parameters/idle/idle_BlendSpace2D/blend_position",
-	"parameters/idle_pistol/idle_pistol_BlendSpace2D/blend_position",
 	"parameters/walk/Walk_BlendSpace2D/blend_position",
+	"parameters/idle_pistol/idle_pistol_BlendSpace2D/blend_position",
 	"parameters/walk_pistol/Walk_pistol_BlendSpace2D/blend_position",
-	"parameters/shoot_pistol/Shoot_pistol_BlendSpace2D/blend_position"
+	"parameters/shoot_pistol/Shoot_pistol_BlendSpace2D/blend_position",
+	"parameters/idle_shotgun/idle_shotgun_BlendSpace2D/blend_position",
+	"parameters/walk_shotgun/Walk_shotgun_BlendSpace2D/blend_position",
+	"parameters/shoot_shotgun/Shoot_shotgun_BlendSpace2D/blend_position"
 ]
 
 var animTree_state_keys = [
 	"idle",
-	"idle_pistol",
 	"walk",
+	"idle_pistol",
 	"walk_pistol",
-	"shoot_pistol"
+	"shoot_pistol",
+	"idle_shotgun",
+	"walk_shotgun",
+	"shoot_shotgun"
 ]
 
-# Member variable to keep track of the current max speed, including any sprint modifications
+var current_weapon = IDLE  # Starts with the character not holding a weapon
+var last_weapon_state = IDLE_PISTOL  # Default last weapon state as pistol
+
 var current_max_speed = MAX_SPEED
 
 func _physics_process(delta):
@@ -54,57 +60,47 @@ func _physics_process(delta):
 	animate()
 	update_health()
 	if health <= 0:
-		player_alive = false # need end screen or somthing 
-		health = 0 
+		player_alive = false
+		health = 0
 		print("player has died")
-		
 
 func move(delta):
 	var input_vector = Input.get_vector("Left", "Right", "Up", "Down")
 	current_max_speed = MAX_SPEED  # Reset to default at each frame
+
+	if Input.is_action_just_pressed("Swap_Weapon"):
+		if shooting_enabled:
+			if current_weapon in [IDLE_PISTOL, WALK_PISTOL, SHOOT_PISTOL]:
+				current_weapon = IDLE_SHOTGUN  # Switch to shotgun
+			else:
+				current_weapon = IDLE_PISTOL  # Switch back to pistol
+
 	if Input.is_action_just_pressed("Shoot_Toggle"):
 		shooting_enabled = not shooting_enabled
+		if shooting_enabled:
+			current_weapon = last_weapon_state  # Enable last used weapon state
+		else:
+			last_weapon_state = current_weapon  # Save current weapon state
+			current_weapon = IDLE  # Switch to unarmed state
 		$"../Hud".visible = not $"../Hud".visible
+
 	if Input.is_action_pressed("Sprint"):
-		current_max_speed *= SPRINT_MULTIPLIER  # Adjust for sprinting
+		current_max_speed *= SPRINT_MULTIPLIER
 
 	if input_vector == Vector2.ZERO:
-		if Input.is_action_just_pressed("Shoot") and shooting_enabled:
-			state = SHOOT_PISTOL
-		elif shooting_enabled:
-			state = IDLE_PISTOL
-		else:
-			state = IDLE
+		state = current_weapon  # Use the current weapon state for idle
 		apply_friction(FRICTION * delta)
-	
-				
-	# TODO make states for pistol and shotgun using this format 	
-	#if input_vector == Vector2.ZERO and shooting_enabled == true:
-	#	state = IDLE_pistol
-	#	apply_friction(FRICTION * delta)
-	
-	#if input_vector == Vector2.ZERO and shooting_enabled == true:
-	#	state = IDLE_attack
-	#	apply_friction(FRICTION * delta)
-	
-	#TODO this needs to change for Walking with weapons 
-	
 	else:
-		if shooting_enabled:
-			state = WALK_PISTOL
-		else:
-			state = WALK
+		state = current_weapon + 1  # Assumes walking state is always one index above idle state in enum
 		apply_movement(input_vector, delta)
+
 	move_and_collide(velocity * delta)
 
 func apply_movement(input_vector, delta) -> void:
 	var acceleration = ACCELERATION
 	if Input.is_action_pressed("Sprint"):
 		acceleration *= SPRINT_MULTIPLIER
-		# Scale blend_position by the sprint multiplier to reflect increased speed
-		blend_position = input_vector.normalized() * SPRINT_MULTIPLIER
-	else:
-		blend_position = input_vector.normalized()
+	blend_position = input_vector.normalized() * (velocity.length() / MAX_SPEED)  # Reflect current velocity as blend position
 	velocity += input_vector.normalized() * acceleration * delta
 	velocity = velocity.limit_length(current_max_speed)
 
@@ -131,7 +127,6 @@ func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_inattack_range = false 
 		
-		
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
 		health = health - 10
@@ -139,8 +134,6 @@ func enemy_attack():
 		$attack_cooldown.start()
 		print(health)
 		
-		
-
 #cooldown between taking damage 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true 
